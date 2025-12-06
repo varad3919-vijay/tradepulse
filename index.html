@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradePulse - Live Market Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              trade: {
+                bg: '#0B121F', // Darker Blue/Black background
+                card: '#151E32', // Slightly lighter for cards
+                cardHover: '#1B2740',
+                border: '#2A3B55',
+                text: '#E2E8F0',
+                muted: '#94A3B8',
+                up: '#10B981', // Emerald 500
+                down: '#EF4444', // Red 500
+                accent: '#3B82F6', // Blue 500
+                yellow: '#F59E0B',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0B121F; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2A3B55; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #3B82F6; 
+      }
+      body {
+        background-color: #0B121F;
+        color: #E2E8F0;
+      }
+      
+      /* Utilities */
+      .text-glow-green {
+        text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+      }
+      .text-glow-red {
+        text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+      }
+      .glass-effect {
+        background: rgba(21, 30, 50, 0.7);
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

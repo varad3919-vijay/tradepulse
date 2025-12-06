@@ -1,0 +1,5 @@
+{
+  "name": "TradePulse - Live Market Dashboard",
+  "description": "A comprehensive, responsive real-time stock market dashboard inspired by professional trading terminals. Features simulated live data feeds (mimicking NSE/Angel One), market breadth analysis, sector performance, and AI-powered market sentiment analysis using Gemini.",
+  "requestFramePermissions": []
+}
