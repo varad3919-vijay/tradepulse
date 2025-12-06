@@ -193,11 +193,13 @@ const OptionDashboard: React.FC<Props> = ({ data }) => {
           <table className="w-full text-sm">
             <thead className="sticky top-0 z-10">
               <tr className="bg-trade-bg text-trade-muted text-xs uppercase shadow-sm">
-                <th className="py-3 px-2 text-center text-red-400 border-b-2 border-red-500/20 w-[15%]">Call OI</th>
-                <th className="py-3 px-2 text-center text-red-400 border-b-2 border-red-500/20 w-[15%]">LTP</th>
-                <th className="py-3 px-4 text-center text-white bg-slate-800 w-[10%]">Strike</th>
-                <th className="py-3 px-2 text-center text-green-400 border-b-2 border-green-500/20 w-[15%]">LTP</th>
-                <th className="py-3 px-2 text-center text-green-400 border-b-2 border-green-500/20 w-[15%]">Put OI</th>
+                <th className="py-3 px-2 text-center text-red-400 border-b-2 border-red-500/20 w-[12%]">Call OI</th>
+                <th className="py-3 px-2 text-center text-red-300 border-b-2 border-red-500/10 w-[10%]">Chg OI</th>
+                <th className="py-3 px-2 text-center text-red-400 border-b-2 border-red-500/20 w-[10%]">LTP</th>
+                <th className="py-3 px-4 text-center text-white bg-slate-800 w-[16%]">Strike</th>
+                <th className="py-3 px-2 text-center text-green-400 border-b-2 border-green-500/20 w-[10%]">LTP</th>
+                <th className="py-3 px-2 text-center text-green-300 border-b-2 border-green-500/10 w-[10%]">Chg OI</th>
+                <th className="py-3 px-2 text-center text-green-400 border-b-2 border-green-500/20 w-[12%]">Put OI</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-trade-border/50">
@@ -214,6 +216,11 @@ const OptionDashboard: React.FC<Props> = ({ data }) => {
                       {isMaxCall && <span className="absolute left-2 top-1/2 -translate-y-1/2 w-1 h-6 bg-red-500 rounded-full"></span>}
                       {isMaxCall && <span className="absolute right-2 top-1 text-[9px] text-red-400 font-bold opacity-60">RES</span>}
                     </td>
+                    <td className="py-2 px-2 text-center font-mono text-xs">
+                       <span className={strike.callChangeOI >= 0 ? 'text-green-400' : 'text-red-400'}>
+                         {strike.callChangeOI > 0 ? '+' : ''}{(strike.callChangeOI / 1000).toFixed(1)}k
+                       </span>
+                    </td>
                     <td className="py-2 px-2 text-center font-mono text-red-300 group-hover:text-red-200">
                       {strike.callLTP.toFixed(2)}
                     </td>
@@ -228,6 +235,11 @@ const OptionDashboard: React.FC<Props> = ({ data }) => {
                     {/* Put Side */}
                     <td className="py-2 px-2 text-center font-mono text-green-300 group-hover:text-green-200">
                       {strike.putLTP.toFixed(2)}
+                    </td>
+                    <td className="py-2 px-2 text-center font-mono text-xs">
+                       <span className={strike.putChangeOI >= 0 ? 'text-green-400' : 'text-red-400'}>
+                         {strike.putChangeOI > 0 ? '+' : ''}{(strike.putChangeOI / 1000).toFixed(1)}k
+                       </span>
                     </td>
                     <td className={`py-2 px-2 text-center relative ${isMaxPut ? 'bg-green-500/10' : ''}`}>
                       <div className="font-mono text-gray-300 group-hover:text-white">{(strike.putOI / 100000).toFixed(2)}L</div>
